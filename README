@@ -1,2 +1,19 @@
 storm-dedup is a de-duplication framework for storm.
 
+## Documentation
+
+see src/main/java/storm/dedup/package-info.java
+
+
+## Run example
+
+0.test pass on storm-0.6.1 and hbase-0.92.0rc0. you should prepare the
+hbase deployment and copy or link the hbase jars or conf files to storm 
+lib or conf directory
+1.set STORM_HOME and HBASE_HOME env
+2.run sh bin/build.sh and get build/storm-dedup.jar
+3.add a table such as testtable in hbase, make sure the table contains
+three colum family : SYSTEM, STATE and OUTPUT
+4.run the example
+$STORM_HOME/bin/storm jar storm-dedup.jar storm-dedup 15 testtable
+
